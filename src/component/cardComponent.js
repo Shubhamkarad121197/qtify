@@ -1,0 +1,30 @@
+import React from "react";
+import Card from "@mui/material/Card";
+
+
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+
+const CardComponetUI = ({follows,image}) => {
+  return (
+    <>
+      <Card sx={{ width: 159, borderRadius: 5 ,maxHeight:210 }}>
+        <CardMedia
+          sx={{ height: 150 }}
+          image={image}
+          title="green iguana"
+        />
+        <CardContent sx={{display:"flex",justifyContent:"start"}}>
+          <Stack direction="row" spacing={1}>
+            <Chip sx={{background: "#121212",color:"#fff"}} label={`${follows} Follows`}  />
+          </Stack>
+        </CardContent>
+      </Card>
+    </>
+  );
+};
+
+export default CardComponetUI;
