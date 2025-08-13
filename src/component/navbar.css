@@ -1,0 +1,30 @@
+.navBar {
+  width: 97.8%;
+  height: 74px;
+  background: #34C94B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em; /* space on left/right */
+  gap: 1em; /* works for both row and column layouts */
+}
+
+.logoImage{
+    height: 60px;
+}
+.giveFeedBackBtn{
+    background-color: #121212;
+    width: 170px;
+    height: 47px;
+    opacity: 1;
+    border-radius: 12px;
+    border-width: 1px;
+    padding-top: 10px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    gap: 10px;
+    color:#34C94B;
+    font-size: 18px;
+
+}

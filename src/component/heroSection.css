@@ -1,0 +1,29 @@
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:2rem;
+}
+.textInfo{
+    color:#ffffff;
+    font-family: Poppins;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+
+
+}
+.heroSectionLogo {
+  width: 212px;
+  height: 212px;
+}
+.heroSectionLogo img{
+    height: 100%;
+    width: 100%;
+}
+
