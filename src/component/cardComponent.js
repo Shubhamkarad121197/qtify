@@ -9,7 +9,7 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import "./cardComponent.css"
 
-const CardComponetUI = ({follows,image,title}) => {
+const CardComponetUI = ({follows,image,title,type}) => {
   return (
     <>
       <div className="cardComponent">
@@ -21,7 +21,7 @@ const CardComponetUI = ({follows,image,title}) => {
         />
         <CardContent sx={{display:"flex",justifyContent:"start"}}>
           <Stack direction="row" spacing={1}>
-            <Chip sx={{background: "#121212",color:"#fff"}} label={`${follows} Follows`}  />
+            <Chip sx={{background: "#121212",color:"#fff"}} label={`${follows} ${type}`}  />
           </Stack>
         </CardContent>
       </Card>

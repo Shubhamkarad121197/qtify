@@ -58,6 +58,7 @@ const NewAlbum=()=>
           follows={item.follows}
           image={item.image}
           title={item.title}
+          type={'Follows'}
         />
       </SwiperSlide>
     ))}
@@ -65,10 +66,10 @@ const NewAlbum=()=>
 ) : (
   newAlumData.map((item, index) => (
     <CardComponetUI
-      key={index}
       follows={item.follows}
       image={item.image}
       title={item.title}
+      type={'follows'}
     />
   ))
 )}

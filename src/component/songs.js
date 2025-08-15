@@ -100,6 +100,7 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
+                       type={'Likes'}
                     />
                   </SwiperSlide>
                 ))}
@@ -120,6 +121,7 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
+                       type={'Likes'}
                     />
                   </SwiperSlide>
                 ))}
@@ -140,6 +142,7 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
+                       type={'Likes'}
                     />
                   </SwiperSlide>
                 ))}
@@ -160,6 +163,7 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
+                       type={'Likes'}
                     />
                   </SwiperSlide>
                 ))}
@@ -180,6 +184,7 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
+                      type={'Likes'}
                     />
                   </SwiperSlide>
                 ))}
