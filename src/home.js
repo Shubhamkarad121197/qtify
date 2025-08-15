@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState} from "react";
 import Navbar from "./component/navbar";
 import HeroSection from "./component/heroSection";
 import "./home.css";
@@ -6,20 +6,22 @@ import TopAlbum from "./component/topAlbum"
 import NewAlbum from "./component/newAlbum";
 import SongsSection from "./component/songs";
 
+
 function Home() {
+   const [searchQuery, setSearchQuery] = useState("");
   return (
     <>
       <div className="homeContainer">
-        <Navbar/>
+        <Navbar onSearch={setSearchQuery}/>
         <HeroSection />
         <div className='section1'>
-            <TopAlbum/>
+            <TopAlbum searchQuery={searchQuery}/>
         </div>
          <div className='section2'>
-            <NewAlbum/>
+            <NewAlbum searchQuery={searchQuery}/>
         </div>
         <div className='songSection3'>
-            <SongsSection/>
+            <SongsSection searchQuery={searchQuery}/>
         </div>
        
         

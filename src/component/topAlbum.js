@@ -7,13 +7,13 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import prevIcon from '../assets/LeftArrow.svg';
-import nextIcon from '../assets/RightArrow.svg';
 import "./topAlbum.css"
 
-const TopAlbum = () => {
+const TopAlbum = ({searchQuery}) => {
   const [albumData, setAlbumData] = useState([]);
-  const [isShowAll ,isSetShowAll]=useState(false)
+  const [isShowAll ,isSetShowAll]=useState(false);
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+
 
   const getTopAlbumData = async () => {
     try {
@@ -33,11 +33,26 @@ const TopAlbum = () => {
     getTopAlbumData();
   }, []);
 
+   useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(searchQuery);
+    }, 1000);
+
+    return () => clearTimeout(handler);
+  }, [searchQuery]);
+
+  // Filter albums based on search query
+  const filteredAlbums = albumData.filter((album) =>
+    album.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+  );
+
   return (
     <div className="cardContainer">
       <div className="titleSection">
          <span className="albumCategory">Top Albums</span>
-         <span className="showAllBtn" onClick={handleShowAll}>Show All</span>
+         <span className="showAllBtn" onClick={handleShowAll}>
+          {!isShowAll?'Show All':'Show Less'}
+         </span>
       </div>
      {!isShowAll ? (
   <Swiper
@@ -46,7 +61,7 @@ const TopAlbum = () => {
     slidesPerView={8}
      navigation
   >
-    {albumData.map((item, index) => (
+    {filteredAlbums.map((item, index) => (
       <SwiperSlide key={index}>
         <CardComponetUI
           follows={item.follows}
@@ -58,7 +73,7 @@ const TopAlbum = () => {
     ))}
   </Swiper>
 ) : (
-  albumData.map((item, index) => (
+  filteredAlbums.map((item, index) => (
     <CardComponetUI
       
       follows={item.follows}

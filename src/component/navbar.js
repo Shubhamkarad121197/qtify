@@ -5,7 +5,7 @@ import SearchBar from "./searchIcon";
 
 
 
-function Navbar() {
+function Navbar({ onSearch }) {
   return (
     <>
       <div className="navBar">
@@ -13,7 +13,7 @@ function Navbar() {
           <img className='logoImage' src={headphonesLogo} alt='logoImage'/>
         </div>
         <div className="searchBar">
-          <SearchBar/>
+          <SearchBar onSearch={onSearch}/>
         </div>
         <div>
           <button className="giveFeedBackBtn">Give Feedback</button>
