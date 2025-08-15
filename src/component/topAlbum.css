@@ -1,0 +1,73 @@
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content:start;
+
+
+}
+.albumCategory{
+text-align: start;
+font-weight: 600;
+font-size: 20px;
+color:#FFF;
+
+}
+.titleSection{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+
+}
+.showAllBtn{
+font-family: "Poppins";
+font-weight: 600;
+
+font-size: 20px;
+
+line-height: 100%;
+letter-spacing: 0px;
+text-align: right;
+color: #34C94B;
+
+
+}
+
+/* Common Styles for Both Buttons */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+/* Previous Button */
+.swiper-button-prev-custom {
+  left: 0;
+  background-image: url("../assets/LeftArrow.svg"); /* your SVG path */
+  height: 30px;
+  width: 30px;
+  background-size: 100% 100%;
+}
+
+/* Next Button */
+.swiper-button-next-custom {
+  right: 0;
+  background-image: url("../assets/RightArrow.svg"); /* your SVG path */
+    background-size: 100% 100%;
+}
+
+/* Optional: Hover Effect */
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+  filter: brightness(0.8);
+}
+
+

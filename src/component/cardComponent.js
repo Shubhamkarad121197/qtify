@@ -7,11 +7,13 @@ import CardMedia from "@mui/material/CardMedia";
 
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
+import "./cardComponent.css"
 
-const CardComponetUI = ({follows,image}) => {
+const CardComponetUI = ({follows,image,title}) => {
   return (
     <>
-      <Card sx={{ width: 159, borderRadius: 5 ,maxHeight:210 }}>
+      <div className="cardComponent">
+        <Card sx={{ width: 159, borderRadius: 5 ,maxHeight:210 }}>
         <CardMedia
           sx={{ height: 150 }}
           image={image}
@@ -23,6 +25,9 @@ const CardComponetUI = ({follows,image}) => {
           </Stack>
         </CardContent>
       </Card>
+       <span className="albumTitle">{title}</span>
+      </div>
+      
     </>
   );
 };

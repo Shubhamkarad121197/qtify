@@ -1,0 +1,17 @@
+.albumTitle{
+    color:#fff;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0px;
+
+
+}
+.cardComponent{
+    display:flex;
+    flex-direction:column;
+    max-width:159px;
+    gap:10px;
+}
