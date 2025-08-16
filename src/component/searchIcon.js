@@ -17,7 +17,7 @@ function SearchBar({onSearch}) {
         <InputBase
           sx={{ ml: 1, flex: 1 }}
 
-          placeholder="Search a ablum by your choice"
+          placeholder="search a ablum by your choice"
           inputProps={{ "aria-label": "Search a ablum by your choice" }}
           onChange={(e) => onSearch(e.target.value)}
         />

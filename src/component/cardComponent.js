@@ -13,7 +13,7 @@ const CardComponetUI = ({follows,image,title,type}) => {
   return (
     <>
       <div className="cardComponent">
-        <Card sx={{ width: 159, borderRadius: 5 ,maxHeight:210 }}>
+        <Card sx={{ minWidth: 159, borderRadius: 5 ,maxHeight:210 }}>
         <CardMedia
           sx={{ height: 150 }}
           image={image}
