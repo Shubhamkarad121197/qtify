@@ -37,7 +37,7 @@ color: #34C94B;
 .swiper-button-prev-custom,
 .swiper-button-next-custom {
   position: absolute;
-  top: 50%;
+  top: 57%;
   z-index: 10;
   width: 40px;
   height: 40px;
@@ -70,4 +70,12 @@ color: #34C94B;
   filter: brightness(0.8);
 }
 
+.noDataMsg {
+  color: #ccc;
+  font-size: 18px;
+  text-align: center;
+  padding: 2rem 0;
+  font-weight: 500;
+  opacity: 0.9;
+}
 

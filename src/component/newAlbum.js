@@ -47,22 +47,37 @@ const filterNewAlbumData = newAlumData.filter((album) =>
 );
 
   return (
-    <>
-      <div className="cardContainer">
-        <div className="titleSection">
-          <span className="albumCategory">New Albums</span>
-          <span className="showAllBtn" onClick={handleShowAll}>
-            {!isShowAll ? "Show All" : "Show Less"}
-          </span>
-        </div>
-        {!isShowAll ? (
+  <>
+    <div className="cardContainer">
+      <div className="titleSection">
+        <span className="albumCategory">New Albums</span>
+        <span className="showAllBtn" onClick={handleShowAll}>
+          {!isShowAll ? "Show All" : "Show Less"}
+        </span>
+      </div>
+
+      {/* ✅ Show message when no data */}
+      {filterNewAlbumData.length === 0 ? (
+        <div className="noDataMsg">No Data Available</div>
+      ) : !isShowAll ? (
+        <>
+          {/* ✅ Custom navigation buttons */}
+          <div className="swiper-button-prev-custom"></div>
+          <div className="swiper-button-next-custom"></div>
+
           <Swiper
             modules={[Navigation, Pagination]}
-            spaceBetween={10}
-            slidesPerView={8}
+            spaceBetween={20}
+            slidesPerView={Math.min(filterNewAlbumData.length, 8)} 
             navigation={{
-              nextEl: ".swiper-button-next-custom",
               prevEl: ".swiper-button-prev-custom",
+              nextEl: ".swiper-button-next-custom",
+            }}
+            onSwiper={(swiper) => {
+              swiper.params.navigation.prevEl = ".swiper-button-prev-custom";
+              swiper.params.navigation.nextEl = ".swiper-button-next-custom";
+              swiper.navigation.init();
+              swiper.navigation.update();
             }}
           >
             {filterNewAlbumData.map((item, index) => (
@@ -76,19 +91,22 @@ const filterNewAlbumData = newAlumData.filter((album) =>
               </SwiperSlide>
             ))}
           </Swiper>
-        ) : (
-          filterNewAlbumData.map((item, index) => (
-            <CardComponetUI
-              follows={item.follows}
-              image={item.image}
-              title={item.title}
-              type={"follows"}
-            />
-          ))
-        )}
-      </div>
-    </>
-  );
+        </>
+      ) : (
+        filterNewAlbumData.map((item, index) => (
+          <CardComponetUI
+            key={index}
+            follows={item.follows}
+            image={item.image}
+            title={item.title}
+            type={"Follows"}
+          />
+        ))
+      )}
+    </div>
+  </>
+);
+
 };
 
 export default NewAlbum;

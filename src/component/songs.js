@@ -47,52 +47,49 @@ const SongsSection = () => {
   useEffect(() => {
     getAllSongs();
   }, []);
-  return (
-    <>
-      {/* Section Title */}
-      <div className="titleSection">
-        <span className="albumCategory">Songs</span>
-      </div>
+return (
+  <>
+    {/* Section Title */}
+    <div className="titleSection">
+      <span className="albumCategory">Songs</span>
+    </div>
 
-      <Box sx={{ width: "100%", mt: 2, fontFamily: "Poppins" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          TabIndicatorProps={{
-            style: { backgroundColor: "#34C94B" }, // Custom active line color
-          }}
-        >
-          <Tab
-            label="All"
-            sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }}
-          />
-          <Tab
-            label="Rock"
-            sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }}
-          />
-          <Tab
-            label="Pop"
-            sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }}
-          />
-          <Tab
-            label="Jazz"
-            sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }}
-          />
-          <Tab
-            label="Blues"
-            sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }}
-          />
-        </Tabs>
+    <Box sx={{ width: "100%", mt: 2, fontFamily: "Poppins" }}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        TabIndicatorProps={{
+          style: { backgroundColor: "#34C94B" },
+        }}
+      >
+        <Tab label="All" sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }} />
+        <Tab label="Rock" sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }} />
+        <Tab label="Pop" sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }} />
+        <Tab label="Jazz" sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }} />
+        <Tab label="Blues" sx={{ color: "#fff", "&.Mui-selected": { color: "#fff" } }} />
+      </Tabs>
 
-        {/* Tab Content */}
-        <Box sx={{ p: 2 }}>
-          {value === 0 && (
-            <Typography sx={{ color: "#fff" }}>
+      {/* Tab Content */}
+      <Box sx={{ p: 2 }}>
+        {value === 0 && (
+          <>
+            {songsData.length === 0 ? (
+              <div className="noDataMsg">No Data Available</div>
+            ) : (
               <Swiper
                 modules={[Navigation, Pagination]}
-                spaceBetween={10}
-                slidesPerView={8}
-                navigation
+                spaceBetween={20}
+                slidesPerView={Math.min(songsData.length, 8)}
+                navigation={{
+                  prevEl: ".swiper-button-prev-custom",
+                  nextEl: ".swiper-button-next-custom",
+                }}
+                onSwiper={(swiper) => {
+                  swiper.params.navigation.prevEl = ".swiper-button-prev-custom";
+                  swiper.params.navigation.nextEl = ".swiper-button-next-custom";
+                  swiper.navigation.init();
+                  swiper.navigation.update();
+                }}
               >
                 {songsData.map((item, index) => (
                   <SwiperSlide key={index}>
@@ -100,19 +97,24 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
-                       type={'Likes'}
+                      type={"Likes"}
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </Typography>
-          )}
-          {value === 1 && (
-            <Typography sx={{ color: "#fff" }}>
-                <Swiper
+            )}
+          </>
+        )}
+
+        {value === 1 && (
+          <>
+            {rockSongData.length === 0 ? (
+              <div className="noDataMsg">No Data Available</div>
+            ) : (
+              <Swiper
                 modules={[Navigation, Pagination]}
-                spaceBetween={10}
-                slidesPerView={8}
+                spaceBetween={20}
+                slidesPerView={Math.min(rockSongData.length, 8)}
                 navigation
               >
                 {rockSongData.map((item, index) => (
@@ -121,19 +123,24 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
-                       type={'Likes'}
+                      type={"Likes"}
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </Typography>
-          )}
-          {value === 2 && (
-            <Typography sx={{ color: "#fff" }}>
-                <Swiper
+            )}
+          </>
+        )}
+
+        {value === 2 && (
+          <>
+            {popSongData.length === 0 ? (
+              <div className="noDataMsg">No Data Available</div>
+            ) : (
+              <Swiper
                 modules={[Navigation, Pagination]}
-                spaceBetween={10}
-                slidesPerView={8}
+                spaceBetween={20}
+                slidesPerView={Math.min(popSongData.length, 8)}
                 navigation
               >
                 {popSongData.map((item, index) => (
@@ -142,19 +149,24 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
-                       type={'Likes'}
+                      type={"Likes"}
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </Typography>
-          )}
-          {value === 3 && (
-            <Typography sx={{ color: "#fff" }}>
-                <Swiper
+            )}
+          </>
+        )}
+
+        {value === 3 && (
+          <>
+            {jazzSongData.length === 0 ? (
+              <div className="noDataMsg">No Data Available</div>
+            ) : (
+              <Swiper
                 modules={[Navigation, Pagination]}
-                spaceBetween={10}
-                slidesPerView={8}
+                spaceBetween={20}
+                slidesPerView={Math.min(jazzSongData.length, 8)}
                 navigation
               >
                 {jazzSongData.map((item, index) => (
@@ -163,19 +175,24 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
-                       type={'Likes'}
+                      type={"Likes"}
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </Typography>
-          )}
-          {value === 4 && (
-            <Typography sx={{ color: "#fff" }}>
-                <Swiper
+            )}
+          </>
+        )}
+
+        {value === 4 && (
+          <>
+            {bluesSongData.length === 0 ? (
+              <div className="noDataMsg">No Data Available</div>
+            ) : (
+              <Swiper
                 modules={[Navigation, Pagination]}
-                spaceBetween={10}
-                slidesPerView={8}
+                spaceBetween={20}
+                slidesPerView={Math.min(bluesSongData.length, 8)}
                 navigation
               >
                 {bluesSongData.map((item, index) => (
@@ -184,17 +201,19 @@ const SongsSection = () => {
                       follows={item.likes}
                       image={item.image}
                       title={item.title}
-                      type={'Likes'}
+                      type={"Likes"}
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </Typography>
-          )}
-        </Box>
+            )}
+          </>
+        )}
       </Box>
-    </>
-  );
+    </Box>
+  </>
+);
+
 };
 
 export default SongsSection;
