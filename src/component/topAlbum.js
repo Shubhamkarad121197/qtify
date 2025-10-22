@@ -18,7 +18,7 @@ const TopAlbum = ({searchQuery}) => {
   const getTopAlbumData = async () => {
     try {
       const response = await axios.get(
-        "https://qtify-backend-labs.crio.do/albums/top"
+        "https://qtify-backend.labs.crio.do/albums/top"
       );
       setAlbumData(response.data);
     } catch (err) {

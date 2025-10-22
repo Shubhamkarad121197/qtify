@@ -26,7 +26,7 @@ const SongsSection = () => {
   const getAllSongs = async () => {
     try {
       const response = await axios.get(
-        "https://qtify-backend-labs.crio.do/songs"
+        "https://qtify-backend.labs.crio.do/songs"
       );
       setAllSongsData(response.data);
       console.log('all',response.data)
